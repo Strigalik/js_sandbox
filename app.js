@@ -1,39 +1,25 @@
-// 008 Type Conversion
+// 009 Numbers The Math Object
+const num1 = 100;
+const num2 = 50;
 let val;
 
-// NUmber to string
-val = String(555);
-val = String(4+4);
+//Simple math with numbers
+val = num1 + num2;
+val = num1 - num2;
+val = num1 / num2;
+val = num1 * num2;
+val = num1 % num2;
 
-// Bool to string
-val = String(false);
+// Math Object
+val = Math.PI;
+val = Math.round(2.8);
+val = Math.ceil(2.3);
+val = Math.floor(2.8);
+val = Math.sqrt(8);
+val = Math.abs(-4);
+val = Math.pow(3, 2);
+val = Math.min(2,3,4,5,7,-2);
+val = Math.max(2,3,4,5,7,-2);
+val = Math.floor(Math.random() * 20 + 1);
 
-// Date to string
-val = String(Date());
-
-// Array to string
-val = String([1,2,3]);
-
-// toString()
-val = (5).toString();
-val = (true).toString();
-
-// String to Number
-val = Number('55.556677');
-val = Number(false);
-val = Number(null);
-val = Number('hello');
-
-val = Number('200.20');
-
-// Output
-/* console.log(val);
-console.log(typeof val);
-// console.log(val.length);
-console.log(val.toFixed(2)); */
-
-const x = '5';
-const y = 6;
-const sum = Number(x + y);
-console.log(sum);
-console.log(typeof sum);
+console.log(val);
