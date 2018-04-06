@@ -1,6 +1,6 @@
-// var, let, const
+// 008 Type Conversion
+let val;
 
-var name = 'John Doe'
-console.log(name);
-name ='Oleg Strigo'
-console.log(name);
+// NUmber to string
+val = 5;
+
