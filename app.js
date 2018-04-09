@@ -1,4 +1,4 @@
-/* 011 Template Literals */
+// 012 Arrays  Array Methods
 
 const name = 'John';
 const age = 35;
