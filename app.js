@@ -1,35 +1,66 @@
-// 012 Arrays  Array Methods
+// 012 Arrays Array Methods
 
-const name = 'John';
-const age = 35;
-const job = 'Web Developer';
-const city = 'Miami';
+// Create some arrays
+const numbers = [43,56,33,23,44,36,5];
+const numbers2 = new Array(22,45,33,76,54);
 
-// Without template string (ES5)
-html = '<ul><li>Name: ' + name + '</li><li>Age: ' + age + '</li><li>Job: '+ job + '</li><li>City: ' + city + '</li></ul>';
+const fruit = ['Apple', 'Banana', 'Orange', 'Pear'];
+const mixed = [22, 'Hello', true, undefined, null, {a:1, b:2}, new Date()];
 
-html = '<ul>' +
-        '<li>Name: ' + name + '</li>' +
-        '<li>Age: ' + age + '</li>' +
-        '<li>Job: ' + job + '</li>' +
-        '<li>City: ' + city + '</li>' +
-        '</ul>';
+let val;
 
-function hello() {
-  return 'hai world';
+// Get array length
+val = numbers.length;
+
+// Check if is array
+val = Array.isArray(numbers);
+
+// Get single value
+val = numbers[0];
+
+// Insert into array
+numbers[2] = 100;
+
+// Find index of value
+val = numbers.indexOf(36);
+
+/* // MUTATING ARRAYS
+// Add on to end
+numbers.push(250);
+// Add on to front
+numbers.unshift(120);
+// Take off from end
+numbers.pop();
+// Take off from front
+numbers.shift();
+// Splice values
+numbers.splice(1,3);
+//Reverse 
+numbers.reverse(); */
+
+// Concatenate arrays
+val = numbers.concat(numbers2);
+
+// Sorting arrays
+/* val = fruit.sort();
+val = numbers.sort(); */
+
+/* // Use the compare func
+
+val = numbers.sort(function (x, y) {
+  return x - y;
+});
+
+val = numbers.sort(function (x, y) {
+  return y - x;
+}); */
+
+// Find
+function over50(num) {
+  return num > 50;
 }
 
-// With template string (ES6)
-html = `
-  <ul>
-    <li>Name: ${name}</li>
-    <li>Age: ${age}</li>
-    <li>Job: ${job}</li>
-    <li>City: ${city}</li>
-    <li>${2+3}</li>
-    <li>${hello()}</li>
-    <li>${age > 30 ? 'Over 30' : 'Under 30'}</li>
-  </ul>
-`;
+val = numbers.find(over50);
 
-document.body.innerHTML = html;
+console.log(numbers);
+console.log(val);
