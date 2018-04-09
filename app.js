@@ -1,14 +1,35 @@
-/* var, let, const */
-var name = 'John Doe'
-console.log(name);
-name ='Oleg Strigo'
-console.log(name);
+/* 011 Template Literals */
 
-/* Init var */
-var greeting;
-console.log(greeting);
-greeting = 'Hello';
-console.log(greeting);
+const name = 'John';
+const age = 35;
+const job = 'Web Developer';
+const city = 'Miami';
 
-/* letters, numbers, _, $
-Cannot start number */
+// Without template string (ES5)
+html = '<ul><li>Name: ' + name + '</li><li>Age: ' + age + '</li><li>Job: '+ job + '</li><li>City: ' + city + '</li></ul>';
+
+html = '<ul>' +
+        '<li>Name: ' + name + '</li>' +
+        '<li>Age: ' + age + '</li>' +
+        '<li>Job: ' + job + '</li>' +
+        '<li>City: ' + city + '</li>' +
+        '</ul>';
+
+function hello() {
+  return 'hai world';
+}
+
+// With template string (ES6)
+html = `
+  <ul>
+    <li>Name: ${name}</li>
+    <li>Age: ${age}</li>
+    <li>Job: ${job}</li>
+    <li>City: ${city}</li>
+    <li>${2+3}</li>
+    <li>${hello()}</li>
+    <li>${age > 30 ? 'Over 30' : 'Under 30'}</li>
+  </ul>
+`;
+
+document.body.innerHTML = html;
