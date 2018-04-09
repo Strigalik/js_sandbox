@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /* 011 Template Literals */
 
 const name = 'John';
