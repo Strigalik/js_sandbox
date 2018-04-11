@@ -1,21 +1,5 @@
 // 013 Object Literals
 
-const person = {
-  firstName: 'Steve',
-  lastName: 'Smith',
-  age: 35,
-  email: 'test@test.com',
-  hobbies: ['music', 'sports'],
-  address: {
-    city: 'Miami',
-    state: 'FL'
-  },
-  getBirthYear: function () {
-    return (new Date()).getFullYear() - this.age;
-  }
-}
-
-let val;
 
 val = person;
 // Specific value
