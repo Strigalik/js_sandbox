@@ -1,71 +1,31 @@
-// 018 General Loops
-// FOR LOOP
-/* for (let i = 0; i < 10; i++) {
-  // console.log('Number ' + i);  
-  if (i === 2) {
-    console.log('2 is my favorite number');
-    continue;
-  }
+// 022 Examining The Document Object
+let val;
 
-  if (i === 5) {
-    console.log('Stop the loop');
-    break;
-  }
-  console.log('Number' + i);
-} */
+val = window;
+val = document.all[2];
+val = document.all.length;
+val = document.head;
+val = document.URL;
 
-// WHILE LOOP
+val = document.forms;
+val = document.forms[0].id;
+val = document.forms[0].action;
 
-// let i = 0;
+val = document.links;
+val = document.links[0];
+val = document.links[0].id;
+val = document.links[0].className;
+val = document.links[0].classList[0];
 
-// while (i < 100) {
-//   console.log('Number ' + i);
-//   i = i + 6;
-// }
+val = document.scripts;
+val = document.scripts[2].getAttribute('src');
 
-// DO WHILE
+let scripts = document.scripts;
 
-// let i = 100;
+let scriptsArr = Array.from(scripts);
 
-// do {
-//   console.log('Number ' + i);
-//   i++;
-// }
-// while(i < 10);
+scriptsArr.forEach(script => {
+  console.log(script.getAttribute('src'));
+});
 
-// LOOP THROUGH ARRAY
-const cars = ['Ford', 'Chevy', 'Honda', 'Toyota'];
-
-// for (let i = 0; i < cars.length; i++) {
-//   console.log(cars[i]);;
-// }
-
-// FOREACH
-// cars.forEach(function(car, index, array){
-//   console.log(`${index} : ${car}`);
-//   console.log(array);
-// });
-
-// MAP
-// const users = [
-//   {id:1, name: 'John'},
-//   {id:2, name: 'Sara'},
-//   {id:3, name: 'Karen'},
-// ];
-
-// const ids = users.map(function(user) {
-//   return user.id;
-// });
-
-// console.log(ids);
-
-// FOR IN LOOP
-const user = {
-  firstName: 'John',
-  lastName: 'Doe',
-  age: 30
-}
-
-for (let x in user) {
-  console.log(`${x} : ${user[x]}`);
-}
+console.log(val);
