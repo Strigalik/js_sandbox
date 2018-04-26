@@ -1,6 +1,2 @@
-// 028 Event Listeners The Event Object
+// 030 Keyboard  Input Events
 
-document.querySelector('.clear-tasks').addEventListener('click', function(e) {
-	console.log('Hello');
-	e.preventDefault();
-});
