@@ -1,20 +1,25 @@
-// 030 Keyboard  Input Events
+// 032 Local Session Storage
 
-const form = document.querySelector('form');
-const taskInput = document.getElementById('task');
+// set local storage item
+// localStorage.setItem('name', 'John');
+// localStorage.setItem('age', '35');
 
-// Clear input
-taskInput.value = '';
+// set session storage item
+// sessionStorage.setItem('name', 'Beth');
 
-// form.addEventListener('submit', runEvent);
+// remove from storage
+// localStorage.removeItem('name');
 
-taskInput.addEventListener('keydown', runEvent);
+//get from storage
+// const name = localStorage.getItem('name');
 
-function runEvent(e) {
-  console.log(`EVENT TYPE: ${e.type}`);
-  console.log(e.target.value);
-  console.log(e.target.value.length);
-  // console.log(taskInput.value);
+// // clear
+// localStorage.clear();
 
-  // e.preventDefault();
-}
+// console.log(name);
+
+document.querySelector('form').addEventListener('submit', function(e){
+  const task = document.getElementById('task').value;
+  console.log(task);
+  e.preventDefault();
+});
