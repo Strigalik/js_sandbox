@@ -1,38 +1,45 @@
-// 032 Local Session Storage
+// Define UI Vars
+const form = document.querySelector('#task-form');
+const taskList = document.querySelector('.collection');
+const clearBtn = document.querySelector('.clear-tasks');
+const filter = document.querySelector('#filter');
+const taskInput = document.querySelector('#task');
 
-// set local storage item
-// localStorage.setItem('name', 'John');
-// localStorage.setItem('age', '35');
+// Load all event listeners
+loadEventListeners();
 
-// set session storage item
-// sessionStorage.setItem('name', 'Beth');
+// Load all event listeners
+function loadEventListeners() {
+  // Add task event
+  form.addEventListener('submit', addTask);
+}
 
-// remove from storage
-// localStorage.removeItem('name');
+// Add Task
+function addTask(e) {
+  if(taskInput.value === '') {
+    alert('Add a task');
+  }
 
-//get from storage
-// const name = localStorage.getItem('name');
+  // Create li element
+  const li = document.createElement('li');
+  // Add class
+  li.className = 'collection-item';
+  // Create text node and append to li
+  li.appendChild(document.createTextNode(taskInput.value));
+  // Create new link element
+  const link = document.createElement('a');
+  // Add class
+  link.className = 'delete-item secondary-content';
+  // Add icon html
+  link.innerHTML = '<i class="fa fa-remove"></i>';
+  // Append the link to li
+  li.appendChild(link);
 
-// // clear
-// localStorage.clear();
+  // Append li to ul
+  taskList.appendChild(li);
 
-// console.log(name);
+  // Clear input
+  taskInput.value = '';
 
-document.querySelector('form').addEventListener('submit', function(e){
-	const task = document.getElementById('task').value;
-	let tasks;
-	if (localStorage.getItem('tasks') === null) {
-		tasks = [];
-	} else {
-		tasks = JSON.parse(localStorage.getItem('tasks'));
-	}
-	tasks.push(task);
-	localStorage.setItem('tasks', JSON.stringify(tasks));
-	alert('Task saved');
   e.preventDefault();
-});
-
-const tasks = JSON.parse(localStorage.getItem('tasks'));
-tasks.forEach(task => {
-	console.log(task);
-});
+}
