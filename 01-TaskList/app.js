@@ -22,11 +22,11 @@ function loadEventListeners() {
 
 // Add Task
 function addTask(e) {
-	if(taskInput.value === '') {
+	if (taskInput.value === '') {
 		alert('Add a task');
 		return false;
 	}
-	
+
 	// Create li element
 	const li = document.createElement('li');
 	// Add class
@@ -41,13 +41,13 @@ function addTask(e) {
 	link.innerHTML = '<i class="fa fa-remove"></i>';
 	// Append the link to li
 	li.appendChild(link);
-	
+
 	// Append li to ul
 	taskList.appendChild(li);
-	
+
 	// Clear input
 	taskInput.value = '';
-	
+
 	e.preventDefault();
 }
 
