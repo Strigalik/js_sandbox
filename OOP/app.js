@@ -1,4 +1,7 @@
-// 043 Constructors the this Keyword
+/**
+ *  043 Constructors the this Keyword
+ */
+
 /* // Person constructor
 function Person(name, dob) {
 	this.name = name;
@@ -35,29 +38,72 @@ console.log(brad.calcAge()); */
 // }
 
 //Number
-const num1 = 5;
-const num2 = new Number(5);
+// const num1 = 5;
+// const num2 = new Number(5);
 
-// Boolean
-const bool1 = true;
-const bool2 = new Boolean(true);
+// // Boolean
+// const bool1 = true;
+// const bool2 = new Boolean(true);
 
-// Function
-const getSum1 = function(x, y) {
-	return x + y;
+// // Function
+// const getSum1 = function(x, y) {
+// 	return x + y;
+// }
+
+// const getSum2 = new Function ('x', 'y', 'return x + y');
+
+// // Object
+// const john1 = {name: 'John1'};
+// const john2 = new Object({name: 'John2'});
+
+// // Arrays
+// const arr1 = [1,2,3,4];
+// const arr2 = new Array(1,2,3,4);
+
+// // Regular Expressions
+// const re1 = /\w+/;
+// const re2 = new RegExp('\\w+');
+
+/**
+ *  045 Prototypes Explained
+ */
+
+// Object.prototype
+function Person(firstName, lastName, dob) {
+	this.firstName = firstName;
+	this.lastName = lastName;
+	this.birthday = new Date(dob);
+	// this.calcAge = function(){
+	// 	const diff = Date.now() - this.birthday.getTime();
+	// 	const ageDate = new Date(diff);
+	// 	return Math.abs(ageDate.getUTCFullYear() - 1970);
+	// }
 }
 
-const getSum2 = new Function ('x', 'y', 'return x + y');
+// Calculate age
+Person.prototype.calcAge = function () {
+	const diff = Date.now() - this.birthday.getTime();
+	const ageDate = new Date(diff);
+	return Math.abs(ageDate.getUTCFullYear() - 1970);
+}
 
-// Object
-const john1 = {name: 'John1'};
-const john2 = new Object({name: 'John2'});
+// Get full name
+Person.prototype.getFullName = function () {
+	return `${this.firstName} ${this.lastName}`;
+}
 
-// Arrays
-const arr1 = [1,2,3,4];
-const arr2 = new Array(1,2,3,4);
+// Gets Married
+Person.prototype.getsMarried = function (newLastName) {
+	this.lastName = newLastName;
+}
 
-// Regular Expressions
-const re1 = /\w+/;
-const re2 = new RegExp('\\w+');
+const john = new Person('John', 'Doe', '08/12/90');
+const mary = new Person('Mary', 'Johnson', 'March 20 1978');
 
+console.log('john age :', mary.calcAge());
+console.log('Full name 1:', mary.getFullName());
+
+mary.getsMarried('Smith');
+
+console.log('Full name 2:', mary.getFullName());
+console.log(mary.hasOwnProperty('firstName'));
