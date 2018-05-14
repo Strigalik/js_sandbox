@@ -68,7 +68,7 @@ console.log(brad.calcAge()); */
  *  045 Prototypes Explained
  */
 
-// Object.prototype
+/* // Object.prototype
 function Person(firstName, lastName, dob) {
 	this.firstName = firstName;
 	this.lastName = lastName;
@@ -106,4 +106,48 @@ console.log('Full name 1:', mary.getFullName());
 mary.getsMarried('Smith');
 
 console.log('Full name 2:', mary.getFullName());
-console.log(mary.hasOwnProperty('firstName'));
+console.log(mary.hasOwnProperty('firstName')); */
+
+/**
+ *  046 Prototypal Inheritance
+ */
+
+// Person constructor
+function Person(firstName, lastName) {
+	this.firstName = firstName;
+	this.lastName = lastName;
+}
+
+// Greeting
+Person.prototype.greeting = function () {
+	return `Hello there ${this.firstName} ${this.lastName}`
+}
+
+const person1 = new Person('John', 'Doe');
+
+// console.log('person1 :', person1);
+// console.log('person1 :', person1.greeting());
+
+// Customer constructor
+function Customer(firstName, lastName, phone, membership) {
+	Person.call(this, firstName, lastName);
+	this.phone = phone;
+	this.membership = membership;
+}
+
+// Inherit the Person prototype methods
+Customer.prototype = Object.create(Person.prototype);
+
+// Make customer.prototype return Customer()
+Customer.prototype.constructor = Customer;
+
+//Create customer
+const customer1 = new Customer('Tom', 'Smith', '55-55-555', 'VIP');
+console.log('customer1 :', customer1);
+
+// Customer greeting
+Customer.prototype.greeting = function () {
+	return `Hello there ${this.firstName} ${this.lastName} welcome to our company`
+}
+
+console.log('customer1.greeting :', customer1.greeting());
