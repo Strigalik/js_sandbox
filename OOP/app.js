@@ -20,7 +20,10 @@ function Person(name, dob) {
 const brad = new Person('Brad', '06/11/1983');
 console.log(brad.calcAge()); */
 
-// 044 Built In Constructors
+/**
+ * 044 Built In Constructors
+ */
+
 // String
 
 // const name1 = 'Jeff';
@@ -156,7 +159,7 @@ console.log('customer1.greeting :', customer1.greeting()); */
  *  047 Using Object.create
  */
 
-const personPrototypes = {
+/* const personPrototypes = {
 	greeting: function () {
 		return `Hello there ${this.firstName} ${this.lastName}`
 	},
@@ -181,4 +184,72 @@ const brad = Object.create(personPrototypes, {
 	age: { value: 36 }
 });
 
-console.log('brad :', brad);
+console.log('brad :', brad); */
+
+/**
+ *  048 ES6 Classes
+ */
+
+/* class Person {
+	constructor(firstName, lastName, dob) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.birthday = new Date(dob);
+	}
+
+	greeting() {
+		return `Hello there ${this.firstName} ${this.lastName}`
+	}
+
+	calculateAge() {
+		const diff = Date.now() - this.birthday.getTime();
+		const ageDate = new Date(diff);
+		return Math.abs(ageDate.getUTCFullYear() - 1970);
+	}
+
+	getsMarried(newLastName) {
+		this.lastName = newLastName;
+	}
+
+	static addNumbers(x, y) {
+		return x + y;
+	}
+
+}
+
+const mary = new Person('Mary', 'Williams', '11-13-1980');
+mary.getsMarried('Thompson');
+console.log(mary);
+console.log(Person.addNumbers(1,2));
+ */
+
+/**
+ *  049 Sub Classes
+ */
+
+ class Person {
+	 constructor(firstName, lastName) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+	 }
+
+	 greeting() {
+		 return `Hello there ${this.firstName} ${this.lastName}`
+	 }
+ }
+
+ class Customer extends Person {
+	 constructor(firstName, lastName, phone, membership) {
+		super(firstName, lastName);
+
+		this.phone = phone;
+		this.membership = membership;
+	 }
+	 static getMembershipCost() {
+		 return 500;
+	 }
+ }
+
+ const john = new Customer('John', 'Doe', '555-55-55', 'VIP');
+ console.log('john :', john.greeting());
+ console.log(Customer.getMembershipCost());
