@@ -8,8 +8,8 @@ function loadData() {
 	const xhr = new XMLHttpRequest();
 
 	// OPEN
-	xhr.open('GET', 'data.txt', true);
-
+	xhr.open('GET', '058-data.txt', true);
+	xhr.send();
 	// console.log('READYSTATE', xhr.readyState);
 
 	// Optional - Used for spinners/loader
@@ -36,9 +36,6 @@ function loadData() {
 	xhr.onerror = function () {
 		console.log('Request error...');
 	}
-
-	xhr.send();
-
 	// readyState Values
 	// 0: request not initialized 
 	// 1: server connection established

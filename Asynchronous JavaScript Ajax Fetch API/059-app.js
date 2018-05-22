@@ -4,13 +4,10 @@ function loadCustomer(e) {
 	const xhr = new XMLHttpRequest();
 
 	xhr.open('GET', 'customer.json', true);
-
+	xhr.send();
 	xhr.onload = function () {
 		if(this.status === 200) {
 			// console.log(this.responseText);
-			
 		}
 	}
-
-	xhr.send();
 }
