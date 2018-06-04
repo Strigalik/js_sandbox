@@ -1,5 +1,5 @@
 /**
- * EasyHTTP LIbrary
+ * EasyHTTP Library
  * Library for makin HTTP requests
  * 
  * @version 3.0.0
