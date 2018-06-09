@@ -18,6 +18,7 @@ class UI {
 						<span class="badge badge-info mb-2">Following: ${user.following}</span>
 						<br><br>
 						<ul class="list-group">
+							<li class="list-group-item"><strong>Name:</strong> ${user.name}</li>
 							<li class="list-group-item"><strong>Company:</strong> ${user.company}</li>
 							<li class="list-group-item"><strong>Website(blog):</strong> ${user.blog}</li>
 							<li class="list-group-item"><strong>Location:</strong> ${user.location}</li>
