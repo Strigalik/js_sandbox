@@ -14,12 +14,11 @@ class UI {
 	paint (weather) {
 		this.location.textContent = weather.display_location.full;
 		this.desc.textContent = weather.weather;
-		// this.string.textContent = `${weather.temp_c} °C (${weather.temp_f} °F)`;
-		this.string.textContent = weather.temperature_string;
+		this.string.textContent = `${weather.temp_c} °C (${weather.temp_f} °F)`;
 		this.icon.setAttribute('src', weather.icon_url);
 		this.humidity.textContent = `Relative Humidity: ${weather.relative_humidity}`;
-		this.feelsLike.textContent = `Feels Like: ${weather.feelslike_string}`;
-		this.dewpoint.textContent = `Dewpoint: ${weather.dewpoint_string}`;
-		this.wind.textContent = `Wind: ${weather.wind_string}`;
+		this.dewpoint.textContent = `Dewpoint: ${weather.dewpoint_c} °C (${weather.dewpoint_f} °F)`;
+		this.feelsLike.textContent = `Feels Like: ${weather.feelslike_c} °C (${weather.feelslike_f} °F)`;
+		this.wind.textContent = `Wind: ${weather.wind_kph} kph`;
 	}
 }
