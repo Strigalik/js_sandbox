@@ -30,7 +30,7 @@ re = /Hel{2,4}o/i;		// Must occur exactly from {m1} to {m2} times
 re = /Hel{2,}o/i;		// Must occur at least {m} times
 
 // Parentheses () - Grouping
-re = /([0-9]x){3}/;
+re = /^([0-9]x){3}$/;
 
 // String to match
 const str ='0x1x2x';
