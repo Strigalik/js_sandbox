@@ -16,13 +16,34 @@ function validateName() {
 }
 
 function validateZip() {
-	
+	const zip = document.getElementById('zipcode');
+	const re = /^\d{6}$/;
+	if (!re.test(zip.value)) {
+		zip.classList.add('is-invalid');
+	} else {
+		zip.classList.remove('is-invalid');
+		zip.classList.add('is-valid');
+	}
 }
 
 function validateEmail() {
-	
+	const email = document.getElementById('email');
+	const re = /^\w+(\.\w+)?@\w+\.\w+$/;
+	if (!re.test(email.value)) {
+		email.classList.add('is-invalid');
+	} else {
+		email.classList.remove('is-invalid');
+		email.classList.add('is-valid');
+	}
 }
 
 function validatePhone() {
-	
+	const phone = document.getElementById('phone');
+	const re = /^\(?\d{3}\)?[-. ]?\d{3}[-. ]?\d{2}[-. ]?\d{2}$/;
+	if (!re.test(phone.value)) {
+		phone.classList.add('is-invalid');
+	} else {
+		phone.classList.remove('is-invalid');
+		phone.classList.add('is-valid');
+	}
 }
