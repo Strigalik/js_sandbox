@@ -1,4 +1,4 @@
-// STORAGE CONTROLLER1
+// STORAGE CONTROLLER
 
 // ITEM CONTROLLER
 const ItemCtrl = (function () {
