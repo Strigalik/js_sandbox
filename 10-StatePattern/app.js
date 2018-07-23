@@ -1,0 +1,95 @@
+const PageState = function () {
+	let currentState = new homeState(this);
+
+	this.init = function () {
+		this.change(new homeState);
+	}
+
+	this.change = function (state) {
+		currentState = state;
+	}
+};
+
+// Home State
+const homeState = function (page) {
+	document.querySelector('#heading').textContent = null;
+	document.querySelector('#content').innerHTML = `
+	<div class="jumbotron">
+		<h1 class="display-4">Hello, world!</h1>
+		<p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+		<hr class="my-4">
+		<p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+		<a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+	</div>
+	`;
+};
+
+// About State
+const aboutState = function(page) {
+	document.querySelector('#heading').textContent = 'About Us';
+	document.querySelector('#content').innerHTML = `
+		<p>This is about page</p>
+		<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga voluptate rerum nostrum nulla, in iste cupiditate corporis placeat aliquid quia et modi debitis blanditiis quibusdam earum quo animi doloribus quisquam?</p>
+	`;
+};
+
+// Contact State
+const contactState = function(page) {
+	document.querySelector('#heading').textContent = 'Contact Us';
+	document.querySelector('#content').innerHTML = `
+	<form>
+		<div class="form-group">
+			<label for="name">Name</label>
+			<input type="text" class="form-control" id="name" placeholder="Enter your name">
+			<small id="nameHelp" class="form-text text-muted">We'll never share your name with anyone else.</small>
+		</div>
+		<div class="form-group">
+			<label for="email">Email address</label>
+			<input type="email" class="form-control" id="email" placeholder="Email">
+		</div>
+		<div class="form-group form-check">
+			<input type="checkbox" class="form-check-input" id="check">
+			<label class="form-check-label" for="check">Check meout</label>
+		</div>
+		<button type="submit" class="btn btn-primary">Submit</button>
+	</form>
+	`;
+};
+
+// Instantiate pageState
+const page = new PageState();
+
+// Init the first state
+page.init();
+
+// UI Vars
+const home = document.getElementById('home'),
+			about = document.getElementById('about'),
+			contact = document.getElementById('contact');
+
+// Home
+home.addEventListener('click', (e) => {
+	page.change(new homeState);
+
+	e.preventDefault();
+});
+
+document.querySelector('.navbar-brand').addEventListener('click', (e) => {
+	page.change(new homeState);
+
+	e.preventDefault();
+});
+
+// About
+about.addEventListener('click', (e) => {
+	page.change(new aboutState);
+
+	e.preventDefault();
+});
+
+// contact
+contact.addEventListener('click', (e) => {
+	page.change(new contactState);
+
+	e.preventDefault();
+});
