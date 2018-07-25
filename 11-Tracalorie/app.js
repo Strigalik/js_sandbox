@@ -301,9 +301,6 @@ const App = (function (ItemCtrl, StorageCtrl, UICtrl) {
 		// Get UI Selectors
 		const UISelectors = UICtrl.getSelectors();
 
-		// Add item event
-		document.querySelector(UISelectors.addBtn).addEventListener('click', itemAddSubmit);
-
 		// Disable submit on key Enter
 		document.addEventListener('keypress', function (e) {
 			if (e.keyCode === 13 || e.which === 13) {
@@ -311,6 +308,9 @@ const App = (function (ItemCtrl, StorageCtrl, UICtrl) {
 				return false
 			}
 		});
+
+		// Add item event
+		document.querySelector(UISelectors.addBtn).addEventListener('click', itemAddSubmit);
 
 		// Edit icon click event
 		document.querySelector(UISelectors.itemList).addEventListener('click', itemEditClick);
@@ -326,6 +326,42 @@ const App = (function (ItemCtrl, StorageCtrl, UICtrl) {
 
 		// Clear items event
 		document.querySelector(UISelectors.clearBtn).addEventListener('click', clearAllItemsClick);
+
+		// Trigger Button Add on Enter
+		document.querySelector(UISelectors.itemNameInput).addEventListener('keyup', function (e) {
+			const addBtnState = document.querySelector(UISelectors.addBtn).style.display;
+			
+			if (e.keyCode === 13 && addBtnState === 'inline')  {
+				e.preventDefault();
+				document.querySelector(UISelectors.addBtn).click();
+			}
+		});
+		document.querySelector(UISelectors.itemCaloriesInput).addEventListener('keyup', function (e) {
+			const addBtnState = document.querySelector(UISelectors.addBtn).style.display;
+			
+			if (e.keyCode === 13 && addBtnState === 'inline')  {
+				e.preventDefault();
+				document.querySelector(UISelectors.addBtn).click();
+			}
+		});
+
+		// Trigger Button Update on Enter
+		document.querySelector(UISelectors.itemNameInput).addEventListener('keyup', function (e) {
+			const addBtnState = document.querySelector(UISelectors.addBtn).style.display;
+			
+			if (e.keyCode === 13 && addBtnState === 'none')  {
+				e.preventDefault();
+				document.querySelector(UISelectors.updateBtn).click();
+			}
+		});
+		document.querySelector(UISelectors.itemCaloriesInput).addEventListener('keyup', function (e) {
+			const addBtnState = document.querySelector(UISelectors.addBtn).style.display;
+			
+			if (e.keyCode === 13 && addBtnState === 'none')  {
+				e.preventDefault();
+				document.querySelector(UISelectors.updateBtn).click();
+			}
+		});
 	}
 
 	// Add item submit
